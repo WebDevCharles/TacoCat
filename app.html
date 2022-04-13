@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>APP NAME: Coding Challenge By Charles Hall</title>
+    <title>TACO CAT: Coding Challenge By Charles Hall</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,9 +31,8 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/favicon-32x32.png" rel="Personal Mark"
-                    class="d-inline-block align-text-top me-2">APP
-                NAME</a>
+            <a class="navbar-brand" href="index.html"><img src="/img/favicon-32x32.png" rel="Personal Mark"
+                    class="d-inline-block align-text-top me-2">TACO CAT</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -62,20 +61,30 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <h1>To Do List:</h1>
-            <div class="row align-items-end">
-                <div class="col">
-                    <label for="txtMessage" class="form-label">Item</label>
-                    <input type="text" class="form-control" id="txtMessage" name="txtMessage" placeholder="Enter Item">
+            <h1 class="fw-bolder">TACO CAT: A Coding Challenge</h1>
+            <hr>
+            <p class="mb-4">
+                <b>"TACO CAT"</b> is a program that checks whether user-supplied words, phrases or sentences are
+                palindromes - it even removes all specialized characters and spaces!
+            </p>
+            <h3>Instructions:</h3>
+            <hr>
+            <p>
+                Enter anything you'd like and it will check to see if it's a palindrome.
+            </p>
+            <div class="row align-items-end mt-5">
+                <div class="col-12 col-md-6">
+                    <input type="text" class="form-control" id="txtMessage" name="txtMessage"
+                        placeholder="Enter a word, phrase or sentence here.">
                 </div>
-                <div class="col">
-                    <button id="btnSubmit" class="btn btn-primary">Add</button>
+                <div class="col mt-2">
+                    <button id="btnSubmit" class="btn btn-primary">Click Me!</button>
                 </div>
             </div>
             <div class="messageStyle mt-5">
-                <ol id="results" class="list-group list-group-numbered">
+                <div id="results" class="list-group list-group-numbered">
 
-                </ol>
+                </div>
             </div>
         </div>
     </main>

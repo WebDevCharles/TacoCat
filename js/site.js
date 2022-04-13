@@ -2,26 +2,48 @@
 function getMessage() {
 
     let msg = document.getElementById("txtMessage").value;
-    displayMessage(msg);
+
+    if (msg == "") {
+        alert("You must enter a string!");
+
+    } else {
+        // Changing output to "lowercase" regardless of input.
+        msg = msg.toLowerCase();
+        // Remove all "special" characters.
+        msg = msg.replace(/[^a-zA-Z0-9]/g, '');
+        let palinObj = reverseMessage(msg);
+        displayMessage(palinObj);
+    }
 
 }
 
+function reverseMessage(originalWord) {
+
+    let revWord = "";
+    let returnObj = {};
+
+    revWord = originalWord.split("").reverse().join("");
+
+}
+
+if (originalWord == revWord) {
+    returnObj.message = `The word/ phrase is a palindrome.`
+    returnObj.IsPalindrome = true;
+} else {
+    returnObj.message = `The word/ phrase is not a palindrome.`
+    returnObj.IsPalindrome = false;
+}
+
+returnObj.originalWord = originalWord;
+returnObj.reversedWord = revWord;
+
+return returnObj;
+}
+
 // Final Step - View
-function displayMessage(message) {
+function displayMessage(palinObj) {
 
-    // First get the "ol" element from the page
     element = document.getElementById("results");
-
-    // Create a new "li" element
-    let item = document.createElement("li");
-
-    // Add classes to the "li" element
-    item.classList.add("list-group-item");
-
-    // Set classes to the "li" element
-    item.innerHTML = message;
-
-    // Add the new items to the list
-    element.appendChild(item) = item;
+    element.innerHTML = palinObj.message;
 
 }
