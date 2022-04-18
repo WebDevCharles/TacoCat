@@ -33,8 +33,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html"><img src="/img/favicon-32x32.png" rel="Personal Mark"
-                    class="d-inline-block align-text-top me-2">APP
-                NAME</a>
+                    class="d-inline-block align-text-top me-2">TACO CAT</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,7 +50,7 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
+                        <a class="nav-link" href="https://github.com/WebDevCharles/TacoCat">The Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -63,43 +62,73 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <h1>THE CODE FOR: App Name</h1>
+            <h1>THE CODE FOR: TACO CAT</h1>
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            function getMessage() {
-                                let msg = document.getElementById("txtMessage").value;
-                                displayMessage(msg);
-                            }
-                            
-                            // Final Step - View
-                            function displayMessage(message) {
-                            
-                                // First get the "ol" element from the page
-                                element = document.getElementById("results");
-                            
-                                // Create a new "li" element
-                                let item = document.createElement("li");
-                            
-                                // Add classes to the "li" element
-                                item.classList.add("list-group-item");
-                            
-                                // Set classes to the "li" element
-                                item.innerHTML = message;
-                            
-                                // Add the new items to the list
-                                element.appendChild(item) = item;
-                            }
+                            // Get Information - Step One
+function getMessage() {
+
+    let msg = document.getElementById("txtMessage").value;
+
+    if (msg == "") {
+        alert("You must enter a string!");
+
+    } else {
+        // Changing output to "lowercase" regardless of input.
+        msg = msg.toLowerCase();
+        // Declaring regex as a constant to prevent modifcation.
+        const regex = /[^a-zA-Z0-9]/gi;
+        msg = msg.replace(regex, '');
+
+        let palinObj = reverseMessage(msg);
+        displayMessage(palinObj);
+    }
+
+}
+
+function reverseMessage(originalWord) {
+
+    let revWord = "";
+    let returnObj = {};
+
+    revWord = originalWord.split("").reverse().join("");
+
+
+    if (originalWord == revWord) {
+        returnObj.message = `The word/phrase is a palindrome!`
+        returnObj.IsPalindrome = true;
+    } else {
+        returnObj.message = `The word/phrase is not a palindrome!`
+        returnObj.IsPalindrome = false;
+    }
+
+    returnObj.originalWord = originalWord;
+    returnObj.reversedWord = revWord;
+
+    return returnObj;
+
+}
+
+// Final Step - View
+function displayMessage(palinObj) {
+
+    element = document.getElementById("results");
+    element.innerHTML = `${palinObj.message} - ${palinObj.originalWord}`;
+
+}
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <p class="mb-5"><b>The code is structured in two functions.</b></p>
+                    <p class="mb-5"><b>The code is structured in three functions.</b></p>
                     <h5>getMessage</h5>
-                    <p>"Gets" values from the user.</p>
+                    <p>"Gets" the word or phrase entered by the user, converts it to lowercase, and then removes any specialized characters (including spaces). </p>
+                    <h5>reverseMessage</h5>
+                    <p>"Reverses" the the word or phrase and validates whether it is in fact a palindrome</p>
                     <h5>displayMessage</h5>
-                    <p>"Displays" the items on the page.</p>
+                    <p>"Displays" whether or not the user provided word/ phrase is a palindrome</p>
                 </div>
             </div>
         </div>
